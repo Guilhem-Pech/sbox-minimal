@@ -1,8 +1,6 @@
 ﻿using Sandbox;
-using System;
-using System.Linq;
 
-namespace MinimalExample
+namespace murder
 {
 	partial class MinimalPlayer : Player
 	{
@@ -49,6 +47,7 @@ namespace MinimalExample
 			//
 			// If we're running serverside and Attack1 was just pressed, spawn a ragdoll
 			//
+			/*
 			if ( IsServer && Input.Pressed( InputButton.Attack1 ) )
 			{
 				var ragdoll = new ModelEntity();
@@ -58,6 +57,7 @@ namespace MinimalExample
 				ragdoll.SetupPhysicsFromModel( PhysicsMotionType.Dynamic, false );
 				ragdoll.PhysicsGroup.Velocity = EyeRot.Forward * 1000;
 			}
+			*/
 		}
 
 		public override void OnKilled()

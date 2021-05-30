@@ -1,5 +1,5 @@
 {
-		"name": "minimal",
+		"name": "murder",
 		"sharedassets": "*.*",
 		
 		"depends": 
@@ -12,9 +12,9 @@
 		"gamemodes":
 		[
 			{
-				"name": "minimal",
-				"title": "minimal",
-				"description": "Minimal gamemode for s&box."
+				"name": "murder",
+				"title": "Murder",
+				"description": "Murder gamemode for s&box."
 			}
 		]
 }

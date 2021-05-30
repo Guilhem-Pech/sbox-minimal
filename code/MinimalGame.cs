@@ -1,14 +1,10 @@
-﻿
+﻿using MinimalExample;
 using Sandbox;
-using Sandbox.UI.Construct;
-using System;
-using System.IO;
-using System.Threading.Tasks;
 
 //
 // You don't need to put things in a namespace, but it doesn't hurt.
 //
-namespace MinimalExample
+namespace murder
 {
 
 	/// <summary>
@@ -21,7 +17,7 @@ namespace MinimalExample
 	/// Your game needs to be registered (using [Library] here) with the same name 
 	/// as your game addon. If it isn't then we won't be able to find it.
 	/// </summary>
-	[Library( "minimal" )]
+	[Library( "murder" )]
 	public partial class MinimalGame : Sandbox.Game
 	{
 		public MinimalGame()
