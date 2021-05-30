@@ -1,3 +1,9 @@
-
-minimal/code/minimal.csproj
-minimal/code/accesslist.txt
+.codegen/
+obj/
+code/accesslist.txt
+Properties
+codegen-*
+code/*.csproj
+.intermediate
+*bakeresourcecache*
+tools_*_*.bin
