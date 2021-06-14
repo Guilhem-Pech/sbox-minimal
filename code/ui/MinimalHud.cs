@@ -1,4 +1,5 @@
-﻿using Sandbox.UI;
+﻿using murder;
+using Sandbox.UI;
 
 //
 // You don't need to put things in a namespace, but it doesn't hurt.
@@ -15,9 +16,11 @@ namespace MinimalExample
 		{
 			if ( IsClient )
 			{
-				RootPanel.SetTemplate( "/minimalhud.html" );
+				//RootPanel.SetTemplate( "/minimalhud.html" );
+				RootPanel.StyleSheet.Load("/ui/minimalhud.scss" );
+				RootPanel.AddChild<MyCustomPanel>(); 
+				RootPanel.AddChild<CrosshairCanvas>(); 
 			}
 		}
 	}
-
 }

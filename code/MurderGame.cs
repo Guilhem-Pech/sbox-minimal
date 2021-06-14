@@ -1,4 +1,7 @@
 ﻿using MinimalExample;
+using murder.Game;
+using murder.Game.States;
+using murder.Utils.FSM;
 using Sandbox;
 
 //
@@ -18,19 +21,19 @@ namespace murder
 	/// as your game addon. If it isn't then we won't be able to find it.
 	/// </summary>
 	[Library( "murder" )]
-	public partial class MinimalGame : Sandbox.Game
+	public partial class MurderGame : Sandbox.Game
 	{
-		public MinimalGame()
+		StateMachine gameState;
+		MinimalHudEntity hud;
+		
+		public MurderGame()
 		{
 			if ( IsServer )
 			{
+				gameState = new StateMachine();
 				Log.Info( "My Gamemode Has Created Serverside!" );
-
-				// Create a HUD entity. This entity is globally networked
-				// and when it is created clientside it creates the actual
-				// UI panels. You don't have to create your HUD via an entity,
-				// this just feels like a nice neat way to do it.
-				new MinimalHudEntity();
+				gameState.SetState( new WaitingForPlayers() );
+				hud = new MinimalHudEntity();
 			}
 
 			if ( IsClient )
@@ -46,10 +49,17 @@ namespace murder
 		{
 			base.ClientJoined( client );
 
-			var player = new MinimalPlayer();
+			var player = new BasePlayer();
 			client.Pawn = player;
 
 			player.Respawn();
+		}
+
+		[Event.Tick.Server]
+		public void TickServer()
+		{
+			if(gameState.CurrentState != null)
+				gameState.Update();
 		}
 	}
 
